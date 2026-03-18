@@ -56,6 +56,21 @@ public class AppLoginSteps {
         driver.quit();
     }
 
+    @Then("the user should see {string}")
+    public void the_user_should_be_logged_in_successfully_outline(String result) {
+        // Verify that login was successful
+        System.out.println("the user should be logged in successfully");
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println("currentUrl" + currentUrl);
+
+        if (currentUrl.contains(result)) {
+            assert true;
+        } else {
+            assert false;
+        }
+        driver.quit();
+    }
+
     @Then("the user should see an error message")
     public void user_sees_error_message() {
         // Verify that an error message is shown for invalid credentials
